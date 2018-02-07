@@ -1,1 +1,14 @@
-<h1>Hello World</h1>
+<div id="articles">
+    <div class="row">
+        {{#each jokes}}
+        <div class="col-xs-9 text-center">
+            <p>{{this.title}}.</p>
+            <a href={{this.link}}>{{this.link}}</a>
+            <button data-id={{this._id}} id="savenote">Add Comment</button>
+        </div>
+        <hr> {{/each}}
+    </div>
+</div>
+<div id="comments">
+
+</div>
