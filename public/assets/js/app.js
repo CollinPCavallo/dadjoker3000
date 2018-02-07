@@ -1,6 +1,6 @@
 console.log('app.js connected')
 
-$(document).on("click", "button", function () {
+$(document).on("click", "#addcomment", function () {
   // Empty the notes from the note section
   $("#comments").empty();
   // Save the id from the p tag
@@ -40,21 +40,15 @@ $(document).on("click", "button", function () {
             method: "POST",
             url: "/jokes/" + thisId,
             data: {
-                // Value taken from title input
                 title: $("#titleinput").val(),
-                // Value taken from note textarea
                 body: $("#bodyinput").val()
             }
         })
-            // With that done
             .then(function (data) {
-                // Log the response
                 console.log(data);
-                // Empty the notes section
                 $("#notes").empty();
             });
 
-        // Also, remove the values entered in the input and textarea for note entry
         $("#titleinput").val("");
         $("#bodyinput").val("");
     });
